@@ -1,9 +1,9 @@
-  name: Emplyee Frontend DevOps Workflow
+name: Emplyee Frontend DevOps Workflow
 
-  on:
+on:
     push:
         branches: [ main ]
-    workflow_disptch: 
+    workflow_dispatch: 
 
   jobs:
     build-job:
