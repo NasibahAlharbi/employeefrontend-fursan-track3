@@ -1,0 +1,14 @@
+  name: Emplyee Frontend DevOps Workflow
+
+  on:
+    push:
+        branches: [ main ]
+    workflow_disptch: 
+
+  jobs:
+    build-job:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Build step 1
+              run: echo "Build step 1"
+
