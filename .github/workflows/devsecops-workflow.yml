@@ -34,9 +34,6 @@ jobs:
         steps:
             - name: First 1 Download the source code
               uses: actions/chechout@v3.5.3
-            #   run: npm run security-audit:prod
-              env:
-                CI: true
 
             - name: Step 2 Install Nodejs
               uses: actions/setup-node@v3.7.0
