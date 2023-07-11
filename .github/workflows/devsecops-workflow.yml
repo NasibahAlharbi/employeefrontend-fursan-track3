@@ -48,7 +48,7 @@ jobs:
               continue-on-error: true
 
             - name: Strp 5 upload NPM audit scan reoprt to github
-              uses: action/upload-artifact@v3
+              uses: actions/upload-artifact@v3
               with:
                 name: npm-audit-result
                 path: npm-auidt-result.json
