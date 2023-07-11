@@ -4,7 +4,6 @@ on:
     push:
         branches: [ main ]
     workflow_dispatch: 
-
 jobs:
     sonarcloud:
         name: SonarCloud
@@ -29,6 +28,33 @@ jobs:
                 -Dsonar.projectKey=NasibahAlharbi_employeefrontend-fursan-track3
                 -Dsonar.sources=.
                 -Dsonar.host.url=https://sonarcloud.io
+    npm-aduit-scan:
+        name: npm aduit scan for vulnerabilities
+        runs-on: ubuntu-latest
+        steps:
+            - name: First 1 Download the source code
+              uses: actions/chechout@v3.5.3
+            #   run: npm run security-audit:prod
+              env:
+                CI: true
+
+            - name: Step 2 Install Nodejs
+              uses: actions/setup-node@v3.7.0
+              with:
+                node-version: '18.16.1'
+
+            - name: Step 3 Install dependencies 
+              run: npm install
+
+            - name: Step 4 NPM adusit scan and generate report in JSON Format
+              run: npm audit --json > npm-audit-results.json
+              continue-on-error: true
+
+            - name: Strp 5 upload NPM audit scan reoprt to github
+              uses: action/upload-artifact@v3
+              with:
+                name: npm-audit-result
+                path: npm-auidt-result.json
 
 
     # build-job:
